@@ -1,106 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Quiz!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="./styles/style.css">
+  <title>Code Quiz</title>
 </head>
+
 <body>
 
-<<<<<<< Updated upstream
-     <div class="banner">
-=======
-     <div id = "banner">
->>>>>>> Stashed changes
-         <header>
-             <h1>JavaScript Quiz!</h1>
+  <h1>The JavaScript Gauntlet</h1>
+  
+  <div class="start">
+    <p>Can you pass the gauntlet? </p>
+    <button id="beginBtn" type="button" class="btn">BEGIN</button><br>
+  </div>
+   
+  <main class="main">
+
+    <!--Quiz window-->
+    <div id="gameCard" class="w3-container hide">
+
+      <h2 class="timer">TIME LEFT: </h2>
+
+      <div id="card1" class="w3-card-4">
+        
+        <header class="w3-container w3-red">
+          <h3 id="question">Question Goes HERE!</h3>
         </header>
-     </div>
 
-<<<<<<< Updated upstream
-     <div class= "card timer">
-         <div class = "timer-text">
-            <div class="large-font timer-count">10</div>
-                <h3>seconds remaining</h3>
-            </div>
-         </div>
-    </div>
+        <hr style="margin-top:0; border-color:transparent;">
 
-     <div class="start">
-        <h2>Start Quiz!</h2>
-     </div>
+        <div id="multipleChoice" class="w3-container">
+          <div class="questionLine">
+            <label id="mcA"></label>
+          </div><hr>
 
-     <div class="question">
-        <h3>placeholder</h3>
-     </div>
+          <div class="questionLine">
+            <label id="mcB"></label>
+          </div><hr>
 
-     <div class="answer">
-        <p>placeholder</p>
-     </div>
+          <div class="questionLine">
+            <label id="mcC"></label>
+          </div><hr>
 
-     <div class="answer">
-        <p>placeholder</p>
-     </div>
+          <div class="questionLine">
+            <label  id="mcD"></label>            
+          </div>
 
-     <div class="answer">
-        <p>placeholder</p>
-     </div>
+        </div>
 
-     <div class="answer">
-        <p>placeholder</p>
-     </div>
+        <hr style="margin-top:0; border-color:transparent;">
 
-     <div class="card results">
-        <div class = "win-loss-container">
-         <div>
-             <h2>Wins: <span class="win">0 </span> </h2>
-              <h2>Losses: <span class="lose">0</span></h2>
-         </div>
-        <button class="reset-button">Reset Score</button>
-    </div>
+        <footer id="feedback1" class="w3-block w3-red">Watch the timer!</footer>
 
-=======
-     <div class = "timer"></div>
+      </div>
       
-   <section>
-     <div>
-        <button id = "start">Start Quiz!</button>
-     </div>
+    </div>
 
-     <div>
-      <header>
-        <h1 id="question">placeholder</h1>
-      </header>
-     </div>
-     <section class = answers>
-           <div>
-              <button id = "answer_a">placeholder</button>
-         </div>
+    <button id="leaderBtn" type="button" class="btn">HIGH SCORES</button><br>
 
-         <div>
-            <button id = "answer_b">placeholder</button>
-         </div>
+    <!--Player input window-->
+    <div id="inputForm" class="w3-container hide">
 
-         <div>
-              <button id = "answer_c">placeholder</button>
-           </div>
+      <h1>THE GAUNTLET HAS ENDED</h1>
+    
+      <h2>You scored <span id="scoreBtn" class="btn">Score</span> points!</h2>
+        <form>
+          <label for="initialsBox">ENTER YOUR INITIALS</label><br>
+          <input id="initialsBox" type="text" maxlength="3"><br>
+          <input id="submitBtn" type="submit" class="btn">
+        </form>
 
-           <div>
-              <button id = "answer_d">placeholder</button>
-          </div>
-         </section>
-     </section>
-     <section>
-       <div class="card results">
-           <div class = "score">
-            <div>
-               <h2>Wins: <span class = "win"></span> </h2>
-                <h2>Losses: <span class = "lose"></span></h2>
-          </div>
-          <button class = "reset-button">Reset Score</button>
-     </div>
-<script src="./assets/script.js"></script>
->>>>>>> Stashed changes
+    </div>
+
+    <!--High Score window-->
+    <div id="scoreCard" class="w3-container hide">
+
+      <div id="card2" class="w3-card-4">
+        
+        <header class="w3-container w3-red">
+          <h1>THE BEST RUNNERS</h1>
+        </header>
+
+        <hr style="margin-top:0; border-color:transparent;">
+        <div id="leaderBoard" class="w3-container" style="min-height: 275px"></div>
+  
+        <hr style="margin-top:0; border-color:transparent;">
+        <footer id="feedback2" class="w3-block w3-red">How far did you make it?</footer>
+      </div>
+
+      <button id="backBtn" type="button" class="btn">BACK TO MENU</button>
+      <button id="clearBtn" type="button" class="btn">CLEAR SCORES</button>
+
+    </div>
+    
+  </main>
+
+  <script src="./scripts/questions.js"></script>
+  <script src="./scripts/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
 </body>
+
 </html>
